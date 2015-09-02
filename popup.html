@@ -9,7 +9,7 @@
     <title>Coverage Adder</title>
     <style>
       body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
         font-size: 100%;
       }
       #status {
@@ -27,11 +27,16 @@
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
+    <!-- <script src="jquery-2.1.4.min.js"></script> -->
     <script src="coverage.js"></script>
   </head>
   <body>
     <div id="status"></div>
-    <img id="image-result" hidden>
+    <!-- <img id="image-result" hidden> -->
+    <div>
+      <ul id="coverageList">
+      </ul>
+    </div>
   </body>
 </html>
 

@@ -16,17 +16,60 @@ var coverageGrabber = (function () {
   };
 }());
 
-// var coveragePersistence = (function () {
-//   return {
-//     saveUrl: function saveUrl(url) {
-//       console.log('coverageGrabber.currentTabUrl ' + url);
-//     }
-//   };
-// }());
+
+var domAPI = (function () {
+  var appendItemToList = function addLiToUl(list, text) {
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(text));
+    list.appendChild(li);
+  };
+  return {
+    updateDom: function updateDom(target, data) {
+      var list = document.getElementById(target);
+      //  loop thru each and do this...
+      console.log('data ' + data);
+      appendItemToList(list, data);
+    }
+  };
+}());
+
+var persistence = (function () {
+  var allUrlsData;
+  return {
+    saveUrl: function saveUrl(url) {
+      console.log('url ' + url);
+      chrome.storage.sync.set({'coverage': url}, function () {
+        console.log('coverage saved');
+      });
+    },
+    // appendUrlToAllUrls: function appendUrlToAllUrls(url) {
+
+    // },
+    // allUrls: function loadUrls() {
+    //   chrome.storage.sync.get("coverage", function (obj) {
+    //     console.log(obj.value);
+    //     allUrlsData = obj.value;
+    //   });
+    // },
+    loadAllUrlsAndUpdateDom: function loadAllUrlsAndUpdateDom() {
+      chrome.storage.sync.get("coverage", function (obj) {
+        console.log(obj.value);
+        allUrlsData = obj.value;
+        domAPI.updateDom('coverageList', allUrlsData);
+      });
+    }
+  };
+}());
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  persistence.loadAllUrlsAndUpdateDom();
   coverageGrabber.getCurrentTabUrl(function (currentTabUrl) {
-    // coveragePersistence.saveUrl(currentTabUrl);
+    persistence.saveUrl(currentTabUrl);
   });
 });
+
+
+// chrome.storage.sync.get("value", function (obj) {
+//     console.log(obj.value);
+// });
