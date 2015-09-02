@@ -1,13 +1,13 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
+  "name": "CoverageBook",
   "description": "This extension shows a Google Image search result for the current page",
   "version": "1.0",
-
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_icon": "cbook-logo.png",
+    "default_popup": "popup.html",
+    "default_title": "Coverage Capture"
   },
   "permissions": [
     "activeTab",
