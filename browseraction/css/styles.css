@@ -1,0 +1,77 @@
+body{
+  width: 450px;
+  font-family: 'Open Sans', sans-serif;
+  background-color:#fefefe;
+  font-size:12px;
+  color: #7e8890;
+  text-align: center;
+  overflow: visible;
+  padding:14px 20px;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.f-dropdown {
+  max-width: 250px
+}
+
+button.clear{
+  background-color: #AFAFAF;
+}
+
+button.clear:hover, button.clear:focus, .button.clear:hover, .button.clear:focus {
+  background-color: #424242;
+}
+
+.label {
+  /*text-align: left;*/
+  display: block;
+  margin-bottom: 6px;
+  color: #7e8890;
+  background-color: white;
+  font-size: 20px;
+}
+
+.drop1 {
+  border: 1px solid #d0d5d8;
+  border-radius: 4px;
+  width: 275px;
+  height: 43px;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 13px;
+  cursor: pointer;
+  font-size:20px;
+  color: rgb(126, 136, 144);
+  padding-top: 5px;
+}
+
+a.grey {
+  color: #555;
+}
+
+a.big-link {
+  display: inline;
+  width: 265px;
+  height: 40px;
+}
+
+a.danger {
+  color: #db011b;
+}
+
+
+/* Margins, Paddings, etc */
+
+.ml-xl {
+  margin-left: -25px;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>coveragebook.com - coverage capture</title>
+    <script type="text/javascript" src="js/vendor/jquery.js"></script>
+    <script type="text/javascript" src="js/vendor/fastclick.js"></script>
+    <script type="text/javascript" src="js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="js/foundation.min.js"></script>
+    <script type="text/javascript" src="../js/angular.min.js"></script>
+    <script type="text/javascript" src="../js/user.js"></script>
+    <script type="text/javascript" src="../js/services.js"></script>
+    <script type="text/javascript" src="../js/root.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body ng-app="root">
+  <div id="wrap" class="container" ng-controller="index">
+    <!-- Client -->
+    <div class="row">
+      <div class="small-offset-1 small-1 columns">
+        <span class="label ml-xl">CLIENT:</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-offset-1 small-11 columns drop1">
+        <a data-dropdown="dropClient" aria-controls="dropClient" aria-expanded="false" class="grey big-link">{{selectedClient.name}}</a><i class="step fi-arrow-down size-36 right"></i>
+        <ul id="dropClient" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+          <li ng-repeat="client in clients" class="truncate" ng-click="toggleClientSelection(client)">
+            <a href="#">{{client.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <!-- <div class="small-1 columns"><a href="#" ng-click="deleteCoverage(coverage)"><i class="step fi-trash size-36 right"></i></a></div> -->
+    </div>
+    <div class="row">
+      <div class="small-offset-5 small-4 columns">
+       <a href="#" ng-click="editCampaignSettings()" class="grey">edit/add client</a>
+      </div>
+    </div>
+    <!-- Campaign -->
+    <div class="row">
+      <div class="small-offset-1 small-2 columns">
+        <span class="label ml-xl">CAMPAIGN:</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-offset-1 small-11 columns drop1">
+        <a data-dropdown="dropCampaign" aria-controls="dropCampaign" aria-expanded="false" class="grey big-link">{{selectedCampaign.name}}</a><i class="step fi-arrow-down size-36 right"></i>
+        <ul id="dropCampaign" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+          <li ng-repeat="campaign in campaigns" class="truncate" ng-click="toggleCampaignSelection(campaign)">
+            <a href="#">{{campaign.name}}</a>
+          </li>
+        </ul>
+      </div>
+  <!--     <div class="small-1 columns"><a href="#" ng-click="deleteCoverage(coverage)"><i class="step fi-trash size-36 right"></i></a></div> -->
+    </div>
+    <div class="row">
+      <div class="small-offset-5 small-4 columns">
+       <a href="#" ng-click="editCampaignSettings()" class="grey">edit/add campaign</a>
+      </div>
+    </div>
+    <!-- Coverage -->
+    <div class="row">
+      <div class="small-offset-1 small-2 columns">
+        <span class="label ml-xl">COVERAGE:</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-offset-1 small-10 columns drop1">
+        <a data-dropdown="dropCoverage" aria-controls="dropCoverage" aria-expanded="false" class="grey big-link">{{selectedCoverage.url}}</a><i class="step fi-arrow-down size-36 right"></i>
+        <ul id="dropCoverage" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-2">
+          <li ng-repeat="coverage in allCoverage" class="truncate" ng-click="toggleCoverageSelection(coverage)">
+            <a href="#">{{coverage.url}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="small-1 columns left"><a href="#" ng-click="deleteCoverage(coverage)" class="danger"><i class="step fi-trash size-21"></i></a></div>
+    </div>
+    <div class="row">
+      <div class="small-offset-3 small-5 columns">
+        <div class="ml-xl">
+          <a href="#" id="grab-url-btn">
+            <img src="img/capture2.jpg" alt="capture coverage" class="capture-btn"/>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <p>(ps: you can just press cmd+shift+u to capture the url)</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-offset-1 small- columns">
+        <p class="bottom">signed in: <strong><a href="https://coveragebook.com/" target="_blank">{{userEmail}}</a></strong></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

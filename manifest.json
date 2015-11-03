@@ -2,16 +2,41 @@
   "manifest_version": 2,
 
   "name": "CoverageBook",
-  "description": "This extension shows a Google Image search result for the current page",
+  "description": "This extension helps save your coverage",
   "version": "1.0",
+  "manifest_version": 2,
   "browser_action": {
-    "default_icon": "cbook-logo.png",
-    "default_popup": "popup.html",
-    "default_title": "Coverage Capture"
+    "default_icon": "img/cbook-logo.png",
+    "default_popup": "browseraction/popup.html",
+    "default_title": "coveragebook.com - capture"
   },
+  "commands": {
+    "grab-url": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "Grab url"
+    }
+  },
+
+  "background": {
+    "scripts": ["js/angular.min.js",
+                "js/background.js"],
+    "persistent": false
+  },
+  // "content_scripts": [
+  //   {
+  //     "matches": ["http://*/*", "https://*/*"],
+  //     "js": ["js/content.js"]
+  //   }
+  // ],
   "permissions": [
+    "storage",
     "activeTab",
     "https://ajax.googleapis.com/",
+    "https://dreamcoverage-staging.herokuapp.com/",
+    "https://coveragebook.com/",
     "storage"
   ]
 }
